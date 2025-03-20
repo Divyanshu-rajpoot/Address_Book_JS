@@ -85,14 +85,20 @@ class AddressBook {
             console.error('Contact not found.');
         }
     }
+
+    //count the number of contacts
+
+    getContactCount() {
+        return this.contacts.reduce(count => count + 1, 0);
+    }
 }
 
 const addressBook = new AddressBook();
 
 console.log(JSON.stringify(addressBook.contacts));
-addressBook.addContact("Divyanshu", "Rajpoot", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "yugdeep@gmail.com");
-addressBook.addContact("Deepansh", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "abc@gmail.com");
-addressBook.addContact("Divyanshi", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "priyanshu@gmail.com");
+addressBook.addContact("Yugdeep", "Parihar", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "yugdeep@gmail.com");
+addressBook.addContact("Abc", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "abc@gmail.com");
+addressBook.addContact("Priyanshu", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "priyanshu@gmail.com");
 addressBook.addContact("Xyz", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "xyz@gmail.com");
 addressBook.addContact("Sohan", "Sharma", "Mathura", "CityName", "UttarPradesh", "281001", "1234567890", "Sohan@gmail.com");
 console.log(JSON.stringify(addressBook.contacts));
@@ -103,3 +109,6 @@ console.log(JSON.stringify(addressBook.contacts,null,2));
 
 addressBook.findAndDeleteContact("Abc");
 console.log(JSON.stringify(addressBook.contacts,null,2));
+
+// Display contact count
+console.log("Number of contacts in address book:", addressBook.getContactCount());
